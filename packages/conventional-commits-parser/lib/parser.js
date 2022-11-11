@@ -259,9 +259,13 @@ function parser (raw, options, regex) {
       return
     }
 
-    if (isBody) {
-      body = append(body, line)
-    } else {
+    // if (isBody) {
+    //   body = append(body, line)
+    // } else {
+    //   footer = append(footer, line)
+    // }
+    body = append(body, line)
+    if (!isBody) {
       footer = append(footer, line)
     }
   })
