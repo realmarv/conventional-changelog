@@ -200,6 +200,8 @@ function parser (raw, options, regex) {
   // body or footer
   _.forEach(lines, function (line) {
     console.log('in for: ', line)
+    console.log('here7', body)
+    console.log('here8', line)
     if (options.fieldPattern) {
       const fieldMatch = options.fieldPattern.exec(line)
 
