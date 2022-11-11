@@ -87,7 +87,6 @@ function passTrough () {
 }
 
 function parser (raw, options, regex) {
-  console.log('here1', raw)
   if (!raw || !raw.trim()) {
     throw new TypeError('Expected a raw commit')
   }
@@ -110,7 +109,6 @@ function parser (raw, options, regex) {
 
   const rawLines = trimOffNewlines(raw).split(/\r?\n/)
   const lines = truncateToScissor(rawLines).filter(commentFilter).filter(gpgFilter)
-  console.log('here2', lines)
   let continueNote = false
   let isBody = true
   const headerCorrespondence = _.map(options.headerCorrespondence, function (part) {
@@ -199,9 +197,6 @@ function parser (raw, options, regex) {
 
   // body or footer
   _.forEach(lines, function (line) {
-    console.log('in for: ', line)
-    console.log('here7', body)
-    console.log('here8', line)
     body = append(body, line)
 
     if (options.fieldPattern) {
@@ -270,14 +265,10 @@ function parser (raw, options, regex) {
     // } else {
     //   footer = append(footer, line)
     // }
-    console.log('here3', body)
-    console.log('here6', line)
     if (!isBody) {
       footer = append(footer, line)
     }
-    console.log('here4', body)
   })
-  console.log('here5', body)
 
   if (options.breakingHeaderPattern && notes.length === 0) {
     const breakingHeader = header.match(options.breakingHeaderPattern)
