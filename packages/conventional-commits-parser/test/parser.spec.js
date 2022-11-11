@@ -399,6 +399,29 @@ describe('parser', function () {
     })
   })
 
+  describe('commits with references', function () {
+    const options = {
+      revertPattern: /^Revert\s"([\s\S]*)"\s*This reverts commit (.*)\.$/,
+      revertCorrespondence: ['header', 'hash'],
+      fieldPattern: /^-(.*?)-$/,
+      headerPattern: /^(\w*)(?:\(([\w$.\-* ]*)\))?: (.*)$/,
+      headerCorrespondence: ['type', 'scope', 'subject'],
+      noteKeywords: ['BREAKING AMEND'],
+      issuePrefixes: ['#', 'gh-']
+    }
+
+    const reg = regex(options)
+
+    const msg = parser(
+      'foo: this is only a title' + '\n\n' + 'Fixes #123.',
+      options, reg
+    )
+
+    it('should include the whole body', function () {
+      expect(msg.body).to.equal('Fixes #123.')
+    })
+  })
+
   describe('merge commits', function () {
     const mergeOptions = {
       headerPattern: /^(\w*)(?:\(([\w$.\-* ]*)\))?: (.*)$/,
