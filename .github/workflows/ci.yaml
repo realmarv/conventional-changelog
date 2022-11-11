@@ -1,7 +1,8 @@
 on:
   push:
     branches:
-
+      - master
+      - fixes-parser-body-null-output
   pull_request:
     types: [ assigned, opened, synchronize, reopened, labeled ]
 name: ci
