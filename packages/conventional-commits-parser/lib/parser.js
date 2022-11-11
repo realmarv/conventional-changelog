@@ -271,6 +271,7 @@ function parser (raw, options, regex) {
       footer = append(footer, line)
     }
   })
+  console.log(body)
 
   if (options.breakingHeaderPattern && notes.length === 0) {
     const breakingHeader = header.match(options.breakingHeaderPattern)
