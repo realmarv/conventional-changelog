@@ -109,7 +109,6 @@ function parser (raw, options, regex) {
 
   const rawLines = trimOffNewlines(raw).split(/\r?\n/)
   const lines = truncateToScissor(rawLines).filter(commentFilter).filter(gpgFilter)
-
   let continueNote = false
   let isBody = true
   const headerCorrespondence = _.map(options.headerCorrespondence, function (part) {
@@ -198,6 +197,8 @@ function parser (raw, options, regex) {
 
   // body or footer
   _.forEach(lines, function (line) {
+    body = append(body, line)
+
     if (options.fieldPattern) {
       const fieldMatch = options.fieldPattern.exec(line)
 
@@ -259,9 +260,12 @@ function parser (raw, options, regex) {
       return
     }
 
-    if (isBody) {
-      body = append(body, line)
-    } else {
+    // if (isBody) {
+    //   body = append(body, line)
+    // } else {
+    //   footer = append(footer, line)
+    // }
+    if (!isBody) {
       footer = append(footer, line)
     }
   })
