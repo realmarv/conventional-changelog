@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - master
+      - fixes-parser-body-null-output
   pull_request:
     types: [ assigned, opened, synchronize, reopened, labeled ]
 name: ci
@@ -21,11 +22,7 @@ jobs:
       - run: node --version
       - run: npm install --engine-strict
       - run: npm test
-      - name: coverage
-        uses: codecov/codecov-action@v2
-        with:
-          name: actions ${{ matrix.node }}
-          fail_ci_if_error: true
+
   windows:
     runs-on: windows-latest
     steps:
@@ -37,8 +34,4 @@ jobs:
           node-version: 12
       - run: npm install --engine-strict
       - run: npm run test-windows
-      - name: coverage
-        uses: codecov/codecov-action@v2
-        with:
-          name: actions windows
-          fail_ci_if_error: true
+
