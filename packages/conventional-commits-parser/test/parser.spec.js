@@ -413,12 +413,12 @@ describe('parser', function () {
     const reg = regex(options)
 
     const msg = parser(
-      'foo: this is only a title' + '\n\n' + 'Bla blah bla #123.',
+      'foo: this is only a title' + '\n\n' + 'Fixes #123.',
       options, reg
     )
 
     it('should include the whole body', function () {
-      expect(msg.body).to.equal('Bla blah bla #123.')
+      expect(msg.body).to.equal('Fixes #123.')
     })
   })
 
