@@ -202,6 +202,8 @@ function parser (raw, options, regex) {
     console.log('in for: ', line)
     console.log('here7', body)
     console.log('here8', line)
+    body = append(body, line)
+
     if (options.fieldPattern) {
       const fieldMatch = options.fieldPattern.exec(line)
 
@@ -270,7 +272,6 @@ function parser (raw, options, regex) {
     // }
     console.log('here3', body)
     console.log('here6', line)
-    body = append(body, line)
     if (!isBody) {
       footer = append(footer, line)
     }
