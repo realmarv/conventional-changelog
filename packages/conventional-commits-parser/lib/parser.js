@@ -266,6 +266,8 @@ function parser (raw, options, regex) {
     // } else {
     //   footer = append(footer, line)
     // }
+    console.log('here3', body)
+    console.log('here6', line)
     body = append(body, line)
     if (!isBody) {
       footer = append(footer, line)
