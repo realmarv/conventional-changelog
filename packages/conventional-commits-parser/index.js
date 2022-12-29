@@ -29,7 +29,8 @@ function assignOpts (options) {
     mergePattern: null,
     mergeCorrespondence: null
   }, options)
-  options.fieldPattern = '';
+  // options.fieldPattern = '';
+  console.log(options)
   if (typeof options.headerPattern === 'string') {
     options.headerPattern = new RegExp(options.headerPattern)
   }
