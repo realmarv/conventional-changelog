@@ -22,7 +22,7 @@ function assignOpts (options) {
     ],
     issuePrefixes: ['#'],
     noteKeywords: ['BREAKING CHANGE', 'BREAKING-CHANGE'],
-    fieldPattern: /^-(.*?)-$/,
+    fieldPattern: '', // /^-(.*?)-$/,
     revertPattern: /^Revert\s"([\s\S]*)"\s*This reverts commit (\w*)\./,
     revertCorrespondence: ['header', 'hash'],
     warn: function () {},
