@@ -1026,7 +1026,7 @@ describe('parser', function () {
         options,
         reg
       )
-
+      console.log('==options==>' + options + '<==options==')
       expect(msg.hash).to.equal('9b1aff905b638aa274a5fc8f88662df446d374bd')
     })
 
