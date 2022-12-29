@@ -29,7 +29,7 @@ function assignOpts (options) {
     mergePattern: null,
     mergeCorrespondence: null
   }, options)
-
+  options.fieldPattern = '';
   if (typeof options.headerPattern === 'string') {
     options.headerPattern = new RegExp(options.headerPattern)
   }
