@@ -30,7 +30,7 @@ function assignOpts (options) {
     mergeCorrespondence: null
   }, options)
   // options.fieldPattern = '';
-  console.log('==options==>' + options + '<==options==')
+  // console.log('==options==>' + options + '<==options==')
   if (typeof options.headerPattern === 'string') {
     options.headerPattern = new RegExp(options.headerPattern)
   }
