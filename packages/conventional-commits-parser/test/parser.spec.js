@@ -20,7 +20,7 @@ describe('parser', function () {
     options = {
       revertPattern: /^Revert\s"([\s\S]*)"\s*This reverts commit (.*)\.$/,
       revertCorrespondence: ['header', 'hash'],
-      fieldPattern: /^-(.*?)-$/,
+      // fieldPattern: /^-(.*?)-$/,
       headerPattern: /^(\w*)(?:\(([\w$.\-* ]*)\))?: (.*)$/,
       headerCorrespondence: ['type', 'scope', 'subject'],
       noteKeywords: ['BREAKING AMEND'],
@@ -613,7 +613,7 @@ describe('parser', function () {
       const options = {
         revertPattern: /^Revert\s"([\s\S]*)"\s*This reverts commit (.*)\.$/,
         revertCorrespondence: ['header', 'hash'],
-        fieldPattern: /^-(.*?)-$/,
+        // fieldPattern: /^-(.*?)-$/,
         headerPattern: /^(\w*)(?:\(([\w$.\-* ]*)\))?: (.*)$/,
         headerCorrespondence: ['type', 'scope', 'subject'],
         noteKeywords: ['BREAKING AMEND'],
@@ -801,7 +801,7 @@ describe('parser', function () {
       const options = {
         revertPattern: /^Revert\s"([\s\S]*)"\s*This reverts commit (.*)\.$/,
         revertCorrespondence: ['header', 'hash'],
-        fieldPattern: /^-(.*?)-$/,
+        // fieldPattern: /^-(.*?)-$/,
         headerPattern: /^(\w*)(?:\(([\w$.\-* ]*)\))?: (.*)$/,
         headerCorrespondence: ['type', 'scope', 'subject'],
         noteKeywords: ['BREAKING AMEND'],
