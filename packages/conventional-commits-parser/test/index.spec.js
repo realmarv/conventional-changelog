@@ -220,7 +220,7 @@ describe('conventionalCommitsParser', function () {
 
     stream
       .pipe(conventionalCommitsParser({
-        // fieldPattern: '^-(.*?)-$',
+        fieldPattern: '^-(.*?)-$',
         headerPattern: '^(\\w*)(?:\\(([\\w\\$\\.\\-\\* ]*)\\))?\\ (.*)$',
         headerCorrespondence: 'subject,type,  scope,',
         issuePrefixes: '#',

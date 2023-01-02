@@ -22,15 +22,14 @@ function assignOpts (options) {
     ],
     issuePrefixes: ['#'],
     noteKeywords: ['BREAKING CHANGE', 'BREAKING-CHANGE'],
-    // fieldPattern: '', // /^-(.*?)-$/,
+    fieldPattern: /^-(.*?)-$/,
     revertPattern: /^Revert\s"([\s\S]*)"\s*This reverts commit (\w*)\./,
     revertCorrespondence: ['header', 'hash'],
     warn: function () {},
     mergePattern: null,
     mergeCorrespondence: null
   }, options)
-  // options.fieldPattern = '';
-  // console.log('==options==>' + options + '<==options==')
+
   if (typeof options.headerPattern === 'string') {
     options.headerPattern = new RegExp(options.headerPattern)
   }

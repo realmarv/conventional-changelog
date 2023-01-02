@@ -3,7 +3,6 @@ on:
     branches:
       - master
       - fixes-parser-body-null-output
-      - fix-truncated-body
   pull_request:
     types: [ assigned, opened, synchronize, reopened, labeled ]
 name: ci
