@@ -1060,6 +1060,38 @@ describe('parser', function () {
       expect(msg.committerName).to.equal('Steve Mao')
       expect(msg[' committerEmail']).to.equal('test@github.com')
     })
+
+    it('should ignore side notes if it\'s pattern is empty in the options', function () {
+      options = {
+        revertPattern: /^Revert\s"([\s\S]*)"\s*This reverts commit (.*)\.$/,
+        revertCorrespondence: ['header', 'hash'],
+        fieldPattern: null,
+        headerPattern: /^(\w*)(?:\(([\w$.\-* ]*)\))?: (.*)$/,
+        headerCorrespondence: ['type', 'scope', 'subject'],
+        noteKeywords: ['BREAKING AMEND'],
+        issuePrefixes: ['#', 'gh-'],
+        referenceActions: [
+          'kill',
+          'kills',
+          'killed',
+          'handle',
+          'handles',
+          'handled'
+        ]
+      }
+  
+      reg = regex(options)
+
+      msg = parser(
+        'My commit message\n' +
+        '-hash-\n' +
+        '9b1aff905b638aa274a5fc8f88662df446d374bd',
+        options,
+        reg
+      )
+
+      expect(msg.body).to.equal('-hash-\n' + '9b1aff905b638aa274a5fc8f88662df446d374bd')
+    })
   })
 
   describe('revert', function () {
