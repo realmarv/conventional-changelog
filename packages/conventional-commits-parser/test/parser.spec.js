@@ -1081,7 +1081,7 @@ describe('parser', function () {
         ]
       }
       console.log('here2')
-  
+
       const reg2 = regex(options2)
       console.log('here3')
       msg = parser(
