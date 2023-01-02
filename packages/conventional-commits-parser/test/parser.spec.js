@@ -1066,7 +1066,7 @@ describe('parser', function () {
       const options2 = {
         revertPattern: /^Revert\s"([\s\S]*)"\s*This reverts commit (.*)\.$/,
         revertCorrespondence: ['header', 'hash'],
-        fieldPattern: /^-(.*?)-$/,
+        fieldPattern: null,
         headerPattern: /^(\w*)(?:\(([\w$.\-* ]*)\))?: (.*)$/,
         headerCorrespondence: ['type', 'scope', 'subject'],
         noteKeywords: ['BREAKING AMEND'],
