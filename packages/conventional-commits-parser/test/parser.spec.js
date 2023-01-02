@@ -1062,6 +1062,7 @@ describe('parser', function () {
     })
 
     it('should ignore side notes if it\'s pattern is empty in the options', function () {
+      console.log('here1')
       options = {
         revertPattern: /^Revert\s"([\s\S]*)"\s*This reverts commit (.*)\.$/,
         revertCorrespondence: ['header', 'hash'],
@@ -1079,9 +1080,10 @@ describe('parser', function () {
           'handled'
         ]
       }
+      console.log('here2')
   
       reg = regex(options)
-
+      console.log('here3')
       msg = parser(
         'My commit message\n' +
         '-hash-\n' +
@@ -1089,8 +1091,10 @@ describe('parser', function () {
         options,
         reg
       )
+      console.log('here4')
 
       expect(msg.body).to.equal('-hash-\n' + '9b1aff905b638aa274a5fc8f88662df446d374bd')
+      console.log('here5')
     })
   })
 
