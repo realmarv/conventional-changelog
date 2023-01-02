@@ -1063,7 +1063,7 @@ describe('parser', function () {
 
     it('should ignore side notes if it\'s pattern is empty in the options', function () {
       console.log('here1')
-      options2 = {
+      let options2 = {
         revertPattern: /^Revert\s"([\s\S]*)"\s*This reverts commit (.*)\.$/,
         revertCorrespondence: ['header', 'hash'],
         fieldPattern: /^-(.*?)-$/,
@@ -1082,7 +1082,7 @@ describe('parser', function () {
       }
       console.log('here2')
   
-      reg2 = regex(options2)
+      let reg2 = regex(options2)
       console.log('here3')
       msg = parser(
         'My commit message\n' +
